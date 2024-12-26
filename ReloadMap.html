@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroPointDB - Reload Maps</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/panzoom@9.6.0/dist/panzoom.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        
+        <header class="navbar">
+            <div class="logo">
+                <img src="images/ZeroPointDBlogo420.png" alt="ZeroPointDB Logo">
+            </div>
+            <div class="nav-buttons">
+                <a href="https://zeropointdb.github.io/BRMap.html"><button class="nav-btn">BR Map</button></a>
+                <a href="https://zeropointdb.github.io/ReloadMap.html"><button class="nav-btn">Reload Maps</button></a>
+                <a href="https://zeropointdb.github.io/shop.html"><button class="nav-btn">Item Shop</button></a>
+                <a href="https://zeropointdb.github.io/lego.html"><button class="nav-btn">LEGO FN</button></a>
+            </div>
+        </header>
 
+        <main class="main-content">
+            <h1 class="main-title">Reload Maps</h1>
+            <p class="main-description">the reload maps</p>
+
+            <div class="image-container" id="map-container">
+                <img src="images/venture30.20.png" alt="Venture Map" class="map-image" id="map-image">
+                <img src="images/oasis32.00.png" alt="Oasis Map" class="map-image" id="oasis-image">
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; ZeroPointDB</p>
+        </footer>
+    </div>
+
+    <script>
+        const map = document.getElementById('map-image');
+        const panzoomInstance = panzoom(map, {
+            maxZoom: 5,  
+            minZoom: 1,  
+        });
+    </script>
+</body>
+</html>
