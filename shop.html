@@ -5,210 +5,382 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroPointDB - Item Shop</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+        }
+
+        /* Sidebar for the vertical tabs */
+        .sidebar {
+            width: 250px;
+            background-color: #2a2a2a;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .sidebar h2 {
+            color: #FF6347;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            border: none;
+            border-bottom: 2px solid #444;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .tab-button:hover {
+            background-color: #555;
+        }
+
+        .tab-content {
+            display: none;
+            margin-left: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .shop-button {
+            width: 250px;
+            height: 400px;
+            background-color: #2a2a2a;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .shop-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+            border-radius: 20px;
+        }
+
+        .shop-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .shop-button:hover img {
+            opacity: 0.8;
+        }
+
+        .shop-button .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 20px;
+        }
+
+        .shop-button:hover .overlay {
+            opacity: 1;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #808080;
+            color: white;
+            font-size: 1.2rem;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #696969;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .main-title {
+            font-family: 'HeadingNow', sans-serif;
+            font-weight: bold;
+            font-size: 3rem;
+            color: #FF6347;
+            margin-bottom: 20px;
+        }
+
+        .main-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="navbar">
-            <div class="logo">
-                <img src="images/ZeroPointDBlogo420.png" alt="ZeroPointDB Logo">
-            </div>
-            <div class="nav-buttons">
-                <a href="https://zeropointdb.github.io/BRMap.html"><button class="nav-btn" disabled>BR Map</button></a>
-                <a href="https://zeropointdb.github.io/ReloadMap.html"><button class="nav-btn" disabled>Reload Maps</button></a>
-                <a href="https://zeropointdb.github.io/shop.html"><button class="nav-btn" disabled>Item Shop</button></a>
-                <a href="https://zeropointdb.github.io/lego.html"><button class="nav-btn" disabled>LEGO FN</button></a>
-            </div>
-        </header>
 
-        <main class="main-content">
-            <h1 class="main-title">Fortnite Item Shop</h1>
-            <p class="main-description">Check out the latest bundles in the Fortnite Item Shop!</p>
-
-            <div class="tabs-container">
-                <div class="tab">
-                    <h2>Star Wars Samurai</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg.png" alt="Star Wars Samurai Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Feudal Gotham</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (1).png" alt="Feudal Gotham Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Master Chief</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (2).png" alt="Master Chief Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Skibidi Toilet</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (3).png" alt="Skibidi Toilet Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Night City Denizens</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (4).png" alt="Night City Denizens Bundle">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (5).png" alt="Cyberpunk Vehicle Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>No Way Home</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (6).png" alt="No Way Home Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Spider-Verse</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (7).png" alt="Spider-Verse Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Frosty Outfits</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (8).png" alt="Krampus Bundle">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (9).png" alt="Gingerbread Brigade Bundle">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (1).webp" alt="Yule Trooper">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (2).webp" alt="Karve">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (3).webp" alt="Tundra Blades">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (10).png" alt="Bundled Up Bundle">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (4).webp" alt="Lil' Winterfest Tree">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Mariah Carey</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (11).png" alt="Mariah Carey Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Santa Shaq</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (12).png" alt="Santa Shaq Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Messi</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (13).png" alt="Messi Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Lamborghini Urus</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (14).png" alt="Lamborghini Urus SE Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Snoop's Cadillac Deville</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (15).png" alt="Snoop Dogg | Cadillac Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>The Incredibile</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (16).png" alt="The Incredibile Bundle">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (17).png" alt="Frozone's Super Blast">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>FNCS</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/input-lg (18).png" alt="FNCS Global Championship 2024 Bundle">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="tab">
-                    <h2>Signature Style</h2>
-                    <div class="tab-content">
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (5).webp" alt="Charon">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (6).webp" alt="Mecha Team Leader">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (7).webp" alt="Festival Lace">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (8).webp" alt="Eagle">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (9).webp" alt="Wild Card">
-                        </button>
-                        <button class="item-button" disabled>
-                            <img src="images/december/25/featured (10).webp" alt="Arctic Ace">
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <div class="sidebar">
+        <h2>Item Shop</h2>
+        <!-- Tab buttons -->
+        <button class="tab-button" onclick="openTab('tab1')">Star Wars Samurai</button>
+        <button class="tab-button" onclick="openTab('tab2')">Feudal Gotham</button>
+        <button class="tab-button" onclick="openTab('tab3')">Master Chief</button>
+        <button class="tab-button" onclick="openTab('tab4')">Skibidi Toilet</button>
+        <button class="tab-button" onclick="openTab('tab5')">Night City Denizens</button>
+        <button class="tab-button" onclick="openTab('tab6')">No Way Home</button>
+        <button class="tab-button" onclick="openTab('tab7')">Spider-Verse</button>
+        <button class="tab-button" onclick="openTab('tab8')">Frosty Outfits</button>
+        <button class="tab-button" onclick="openTab('tab9')">Mariah Carey</button>
+        <button class="tab-button" onclick="openTab('tab10')">Santa Shaq</button>
+        <button class="tab-button" onclick="openTab('tab11')">Messi</button>
+        <button class="tab-button" onclick="openTab('tab12')">Lamborghini Urus</button>
+        <button class="tab-button" onclick="openTab('tab13')">Snoop's Cadillac Deville</button>
+        <button class="tab-button" onclick="openTab('tab14')">The Incredibile</button>
+        <button class="tab-button" onclick="openTab('tab15')">FNCS</button>
+        <button class="tab-button" onclick="openTab('tab16')">Signature Style</button>
     </div>
+
+    <div class="main-content">
+        <h1 class="main-title">Fortnite Item Shop</h1>
+        <p class="main-description">Check out the latest bundles in the Fortnite Item Shop!</p>
+
+        <!-- Tab content -->
+        <div id="tab1" class="tab-content">
+            <!-- Star Wars Samurai -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg.png" alt="Star Wars Samurai Bundle">
+                <div class="overlay">Star Wars Samurai</div>
+            </div>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <!-- Feudal Gotham -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (1).png" alt="Feudal Gotham Bundle">
+                <div class="overlay">Feudal Gotham</div>
+            </div>
+        </div>
+
+        <div id="tab3" class="tab-content">
+            <!-- Master Chief -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (2).png" alt="Master Chief Bundle">
+                <div class="overlay">Master Chief</div>
+            </div>
+        </div>
+
+        <div id="tab4" class="tab-content">
+            <!-- Skibidi Toilet -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (3).png" alt="Skibidi Toilet Bundle">
+                <div class="overlay">Skibidi Toilet</div>
+            </div>
+        </div>
+
+        <div id="tab5" class="tab-content">
+            <!-- Night City Denizens -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (4).png" alt="Night City Denizens Bundle">
+                <div class="overlay">Night City Denizens</div>
+            </div>
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (5).png" alt="Cyberpunk Vehicle Bundle">
+                <div class="overlay">Cyberpunk Vehicle</div>
+            </div>
+        </div>
+
+        <div id="tab6" class="tab-content">
+            <!-- No Way Home -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (6).png" alt="No Way Home Bundle">
+                <div class="overlay">No Way Home</div>
+            </div>
+        </div>
+
+        <div id="tab7" class="tab-content">
+            <!-- Spider-Verse -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (7).png" alt="Spider-Verse Bundle">
+                <div class="overlay">Spider-Verse</div>
+            </div>
+        </div>
+
+<div id="tab8" class="tab-content">
+    <!-- Frosty Outfits -->
+    <div class="shop-button">
+        <img src="images/december/25/input-lg (8).png" alt="Krampus Bundle">
+        <div class="overlay">Krampus</div>
+    </div>
+    <div class="shop-button">
+        <img src="images/december/25/input-lg (9).png" alt="Gingerbread Brigade Bundle">
+        <div class="overlay">Gingerbread Brigade</div>
+    </div>
+    <div class="shop-button">
+        <img src="images/december/25/featured (1).webp" alt="Yule Trooper">
+        <div class="overlay">Yule Trooper</div>
+    </div>
+    <div class="shop-button">
+        <img src="images/december/25/featured (2).webp" alt="Karve">
+        <div class="overlay">Karve</div>
+    </div>
+    <div class="shop-button">
+        <img src="images/december/25/featured (3).webp" alt="Tundra Blades">
+        <div class="overlay">Tundra Blades</div>
+    </div>
+    <div class="shop-button">
+        <img src="images/december/25/input-lg (10).png" alt="Bundled Up Bundle">
+        <div class="overlay">Bundled Up</div>
+    </div>
+    <div class="shop-button">
+        <img src="images/december/25/featured (4).webp" alt="Lil' Winterfest Tree">
+        <div class="overlay">Winterfest Tree</div>
+    </div>
+</div>
+
+
+        <div id="tab9" class="tab-content">
+            <!-- Mariah Carey -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (11).png" alt="Mariah Carey Bundle">
+                <div class="overlay">Mariah Carey</div>
+            </div>
+        </div>
+
+        <div id="tab10" class="tab-content">
+            <!-- Santa Shaq -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (12).png" alt="Santa Shaq Bundle">
+                <div class="overlay">Santa Shaq</div>
+            </div>
+        </div>
+
+        <div id="tab11" class="tab-content">
+            <!-- Messi -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (13).png" alt="Messi Bundle">
+                <div class="overlay">Messi</div>
+            </div>
+        </div>
+
+        <div id="tab12" class="tab-content">
+            <!-- Lamborghini Urus -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (14).png" alt="Lamborghini Urus SE Bundle">
+                <div class="overlay">Lamborghini Urus</div>
+            </div>
+        </div>
+
+        <div id="tab13" class="tab-content">
+            <!-- Snoop's Cadillac Deville -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (15).png" alt="Snoop Dogg | Cadillac Bundle">
+                <div class="overlay">Snoop's Cadillac</div>
+            </div>
+        </div>
+
+        <div id="tab14" class="tab-content">
+            <!-- The Incredibile -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (16).png" alt="The Incredibile Bundle">
+                <div class="overlay">The Incredibile</div>
+            </div>
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (17).png" alt="Frozone's Super Blast">
+                <div class="overlay">Frozone's Super Blast</div>
+            </div>
+        </div>
+
+        <div id="tab15" class="tab-content">
+            <!-- FNCS -->
+            <div class="shop-button">
+                <img src="images/december/25/input-lg (18).png" alt="FNCS Global Championship 2024 Bundle">
+                <div class="overlay">FNCS</div>
+            </div>
+        </div>
+
+        <div id="tab16" class="tab-content">
+            <!-- Signature Style -->
+            <div class="shop-button">
+                <img src="images/december/25/featured (5).webp" alt="Charon">
+                <div class="overlay">Charon</div>
+            </div>
+            <div class="shop-button">
+                <img src="images/december/25/featured (6).webp" alt="Mecha Team Leader">
+                <div class="overlay">Mecha Team Leader</div>
+            </div>
+            <div class="shop-button">
+                <img src="images/december/25/featured (7).webp" alt="Festival Lace">
+                <div class="overlay">Festival Lace</div>
+            </div>
+            <div class="shop-button">
+                <img src="images/december/25/featured (8).webp" alt="Eagle">
+                <div class="overlay">Eagle</div>
+            </div>
+            <div class="shop-button">
+                <img src="images/december/25/featured (9).webp" alt="Wild Card">
+                <div class="overlay">Wild Card</div>
+            </div>
+            <div class="shop-button">
+                <img src="images/december/25/featured (10).webp" alt="Arctic Ace">
+                <div class="overlay">Arctic Ace</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Initialize first tab
+        openTab('tab1');
+    </script>
 </body>
 </html>
